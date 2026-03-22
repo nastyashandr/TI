@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LFSR Потоковое шифрование</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>LFSR потоковое шифрование</h1>
+        <p class="subtitle">Полином: x³¹ + x³ + 1 | Длина регистра: 31 бит</p>
+      </header>
+
+      <main>
+        <section class="card">
+          <h2>Настройки LFSR</h2>
+
+          <div class="info-row">
+            <span class="info-label">Характеристический многочлен:</span>
+            <span class="info-value">x³¹ + x³ + 1</span>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">Длина регистра:</span>
+            <span class="info-value">31 бит</span>
+          </div>
+
+          <div class="input-group">
+            <label for="initial-state"
+              >Начальное состояние регистра (31 бит):</label
+            >
+            <input
+              type="text"
+              id="initial-state"
+              value="1111111111111111111111111111111"
+              maxlength="31"
+              placeholder="1111111111111111111111111111111"
+            />
+            <p class="input-hint">
+              Только 0 и 1, должно быть ровно 31 символов
+            </p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Управление файлами</h2>
+          <div class="button-group">
+            <label for="file-input" class="button button-outline"
+              >Выбрать файл</label
+            >
+            <input type="file" id="file-input" hidden />
+            <button id="encrypt-btn" class="button button-primary">
+              Зашифровать
+            </button>
+            <button id="decrypt-btn" class="button button-primary">
+              Расшифровать
+            </button>
+            <button
+              id="save-btn"
+              class="button button-success"
+              style="display: none"
+            >
+              Сохранить результат
+            </button>
+            <button
+              id="export-excel-btn"
+              class="button button-success"
+              style="display: none"
+            >
+              Экспорт в Excel
+            </button>
+          </div>
+          <div id="file-info" class="file-info">
+            <p class="text-muted">Файл не выбран</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Сгенерированный ключ</h2>
+          <p class="section-note">
+            Длина ключа = длина файла (первые и последние 32 бита)
+          </p>
+          <div class="key-container">
+            <pre id="key-output" class="binary-display">—</pre>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Результаты</h2>
+          <p class="section-note">Первые и последние 32 бита в двоичном виде</p>
+          <div class="results-grid">
+            <div class="result-column">
+              <h3>Исходный файл</h3>
+              <pre id="original-output" class="binary-display">—</pre>
+            </div>
+            <div class="result-column">
+              <h3>Обработанный файл</h3>
+              <pre id="result-output" class="binary-display">—</pre>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="lfsr.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

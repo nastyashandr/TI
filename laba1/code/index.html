@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа: Шифрование</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Лабораторная работа 1 Шандриченко</h1>
+        <p class="subtitle">Железнодорожная изгородь (английский) + Виженер (русский, прямой ключ)</p>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="rail">Железнодорожная изгородь</button>
+            <button class="mode-btn" data-mode="vigenere">Виженер</button>
+        </div>
+
+        <div class="key-group">
+            <label for="keyInput">Ключ:</label>
+            <input type="text" id="keyInput" placeholder="Для изгороди: число ≥ 2, для Виженера: слово" autocomplete="off">
+        </div>
+
+        <div class="dual-panel">
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Исходный текст</span>
+                    <button class="small-btn" id="loadFileBtn">Загрузить файл</button>
+                </div>
+                <textarea id="inputText" placeholder="Введите текст с клавиатуры или загрузите файл..."></textarea>
+            </div>
+            <div class="panel">
+                <div class="panel-header">
+                    <span>Результат</span>
+                    <button class="small-btn" id="saveFileBtn">Сохранить в файл</button>
+                </div>
+                <textarea id="outputText" placeholder="Здесь появится зашифрованный/расшифрованный текст..." readonly></textarea>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="action-btn primary" id="encryptBtn">Зашифровать</button>
+            <button class="action-btn secondary" id="decryptBtn">Расшифровать</button>
+        </div>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
