@@ -1,4 +1,3 @@
-// Класс LFSR
 class LFSR {
   // Начальное состояние регистра
   constructor(initialState) {

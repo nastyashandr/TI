@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ElGamal | Криптосистема</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ElGamal</h1>
+      <p class="subtitle">Асимметричное шифрование</p>
+
+      <!-- 1. Генерация ключей -->
+      <div class="block">
+        <div class="block-title">Генерация ключей</div>
+
+        <div class="row">
+          <div class="field">
+            <label>p (простое число)</label>
+            <input type="number" id="pInput" value="41" />
+          </div>
+          <div class="field">
+            <label>g (первообразный корень)</label>
+            <div class="flex-row">
+              <select id="gSelect"></select>
+              <button id="findRootsBtn" class="btn-light">Найти</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>x (секретный ключ)</label>
+            <input type="number" id="xInput" value="23" />
+          </div>
+        </div>
+
+        <div id="keyCheckInfo" class="info"></div>
+
+        <button id="generateKeysBtn" class="btn-dark">
+          Сгенерировать ключи
+        </button>
+
+        <div id="keyResult" class="output" style="display: none"></div>
+        <div id="keyStatus" class="status"></div>
+      </div>
+
+      <!-- 2. Шифрование -->
+      <div class="block">
+        <div class="block-title">Шифрование</div>
+
+        <div class="file-row">
+          <span id="encryptFileName" class="filename">Файл не выбран</span>
+          <input type="file" id="encryptFileInput" style="display: none" />
+          <button id="selectEncryptFileBtn" class="btn-light">Выбрать</button>
+        </div>
+
+        <div class="field">
+          <label>k (взаимно простое с p-1)</label>
+          <input type="number" id="kInput" value="7" />
+        </div>
+
+        <div id="kCheckInfo" class="info small"></div>
+
+        <button id="encryptBtn" class="btn-green">Зашифровать</button>
+
+        <div id="encryptResult" class="output" style="display: none"></div>
+      </div>
+
+      <!-- 3. Дешифрование -->
+      <div class="block">
+        <div class="block-title">Дешифрование</div>
+
+        <div class="file-row">
+          <span id="decryptFileName" class="filename">Файл не выбран</span>
+          <input type="file" id="decryptFileInput" style="display: none" />
+          <button id="selectDecryptFileBtn" class="btn-light">Выбрать</button>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label>Закрытый ключ x</label>
+            <input type="number" id="decryptXInput" placeholder="x" />
+          </div>
+          <div class="field">
+            <label>Параметр p</label>
+            <input type="number" id="decryptPInput" placeholder="p" />
+          </div>
+        </div>
+
+        <button id="decryptBtn" class="btn-green">Расшифровать</button>
+
+        <div id="decryptResult" class="output" style="display: none"></div>
+      </div>
+
+      <!-- 4. Просмотр -->
+      <div class="block">
+        <div class="block-title">Просмотр файла</div>
+
+        <div class="file-row">
+          <span id="viewFileName" class="filename">Файл не выбран</span>
+          <input type="file" id="viewFileInput" style="display: none" />
+          <button id="selectViewFileBtn" class="btn-light">Выбрать</button>
+        </div>
+
+        <button id="viewBtn" class="btn-light">Показать содержимое</button>
+
+        <div id="viewResult" class="output" style="display: none"></div>
+      </div>
+
+      <div class="footer">ElGamal Cryptosystem</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
